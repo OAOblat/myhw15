@@ -1,16 +1,16 @@
 
-public class ProductManager {
+public class PosterManager {
 
     private PosterItem[] items = new PosterItem[0];
-    private int maxLength = 5;
+    private int maxLength;
 
 
-    public ProductManager(int maxLength) {
+    public PosterManager(int maxLength) {
         this.maxLength = maxLength;
     }
 
-    public ProductManager() {
-        this.maxLength = maxLength;
+    public PosterManager() {
+        this.maxLength = 5;
     }
 
     public void add(PosterItem item) {
@@ -22,7 +22,7 @@ public class ProductManager {
         items = tmp;
     }
 
-    public PosterItem[] getItems() {
+    public PosterItem[] findAll() {
         return items;
     }
 
@@ -34,12 +34,10 @@ public class ProductManager {
         } else {
             resultLength = maxLength;
         }
-
         PosterItem[] result = new PosterItem[resultLength];
         for (int i = 0; i < result.length; i++) {
             result[i] = all[result.length - 1 - i];
         }
         return result;
     }
-
 }

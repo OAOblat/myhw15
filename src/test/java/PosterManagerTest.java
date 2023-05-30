@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ProductManagerTest {
+public class PosterManagerTest {
     PosterItem item1 = new PosterItem("Бладшот");
     PosterItem item2 = new PosterItem("Вперед");
     PosterItem item3 = new PosterItem("Отель Белград");
@@ -13,7 +13,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldFindAll() {
-        ProductManager poster = new ProductManager();
+        PosterManager poster = new PosterManager();
         poster.add(item1);
         poster.add(item2);
         poster.add(item3);
@@ -21,7 +21,7 @@ public class ProductManagerTest {
         poster.add(item5);
 
         PosterItem[] expected = {item1, item2, item3, item4, item5};
-        PosterItem[] actual = poster.getItems();
+        PosterItem[] actual = poster.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -29,7 +29,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldFindLastByDefault() {
-        ProductManager poster = new ProductManager(6);
+        PosterManager poster = new PosterManager(6);
         poster.add(item1);
         poster.add(item2);
         poster.add(item3);
@@ -45,7 +45,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldFindLastIfLessMaxLength() {
-        ProductManager poster = new ProductManager();
+        PosterManager poster = new PosterManager();
         poster.add(item1);
         poster.add(item2);
         poster.add(item3);
@@ -59,7 +59,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldFindLastIfMoreMaxLength() {
-        ProductManager poster = new ProductManager();
+        PosterManager poster = new PosterManager();
         poster.add(item1);
         poster.add(item2);
         poster.add(item3);
